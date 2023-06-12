@@ -1,6 +1,6 @@
-import { gitHubApi } from "./api";
+import { gitHubApi } from "../api";
 
-import { sleep } from "../helpers/sleep";
+import { sleep } from "../../helpers/sleep";
 
 import { Label } from "./getLabels.type";
 
