@@ -1,24 +1,34 @@
+import { FC } from "react";
+import Loading from "../Loading/Loading";
+
+import { labPickProps } from "./LlabelPicker.type";
 import { useQueryLabels } from "../../../hooks/useQueryLabels";
 
-export const LabelPicker = () => {
+export const LabelPicker: FC<labPickProps> = ({ selectedLabels, onChange }) => {
   const queryLabels = useQueryLabels();
 
-  if (queryLabels.isLoading) return <h1>Loading...</h1>;
+  if (queryLabels.isLoading) return <Loading />;
 
   return (
     <div>
-      {queryLabels.data?.map((label, index) => (
+      {queryLabels.data?.map((l, index) => (
         <span
           key={index}
-          className="badge rounded-pill m-1 label-picker"
+          className={`badge rounded-pill m-1 label-picker 
+          ${
+            selectedLabels.find((item) => item === l.name) ? "label-active" : ""
+          }`}
           style={{
-            border: `1px solid #${label.color}`,
-            color: `#${label.color}`,
+            border: `1px solid #${l.color}`,
+            color: `#${l.color}`,
           }}
+          onClick={() => onChange(l.name)}
         >
-          {label.name}
+          {l.name}
         </span>
       ))}
     </div>
   );
 };
+
+LabelPicker.propTypes = labPickProps;

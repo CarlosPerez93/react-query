@@ -5,6 +5,9 @@ export const useQueryLabels = () => {
   const queryLabels = useQuery({
     queryKey: ["queryLabels"],
     queryFn: getLabels,
+    /* initialData: [{}], */
+    /* placeHolderData: [{}], */
+    /*     staleTime: 1000 * 60 * 60, //time refresh data*/
     /*     refetchOnWindowFocus: false, //refresh windows */
   });
   return queryLabels;

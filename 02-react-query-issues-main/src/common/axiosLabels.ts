@@ -1,12 +1,15 @@
-import { Api } from "./api";
+import { gitHubApi } from "./api";
 
 import { sleep } from "../helpers/sleep";
-import { labelProps } from "../issues/components/labels/label.type";
 
-export const getLabels = async (): Promise<labelProps[]> => {
+type T = {
+  id: number;
+  name: string;
+  color: string;
+};
+
+export const getLabels = async () => {
   await sleep(0.5);
-  const { data } = await Api.get<labelProps[]>("/labels");
-  console.log(data);
-
+  const { data } = await gitHubApi.get<T[]>("/labels");
   return data;
 };
