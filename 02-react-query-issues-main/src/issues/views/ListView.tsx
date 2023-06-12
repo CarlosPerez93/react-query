@@ -2,10 +2,6 @@ import { useState } from "react";
 import { IssueList } from "../components/IssueList";
 import { LabelPicker } from "../components/labels/LabelPicker";
 
-type T = {
-  name: string;
-};
-
 export const ListView = () => {
   const [selectedLabels, setSelectedLabels] = useState<string[]>([]);
 
