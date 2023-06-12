@@ -11,20 +11,22 @@ export const LabelPicker: FC<labPickProps> = ({ selectedLabels, onChange }) => {
 
   return (
     <div>
-      {queryLabels.data?.map((l, index) => (
+      {queryLabels.data?.map((label) => (
         <span
-          key={index}
+          key={label.id}
           className={`badge rounded-pill m-1 label-picker 
           ${
-            selectedLabels.find((item) => item === l.name) ? "label-active" : ""
+            selectedLabels.find((item) => item === label.name)
+              ? "label-active"
+              : ""
           }`}
           style={{
-            border: `1px solid #${l.color}`,
-            color: `#${l.color}`,
+            border: `1px solid #${label.color}`,
+            color: `#${label.color}`,
           }}
-          onClick={() => onChange(l.name)}
+          onClick={() => onChange(label.name)}
         >
-          {l.name}
+          {label.name}
         </span>
       ))}
     </div>
