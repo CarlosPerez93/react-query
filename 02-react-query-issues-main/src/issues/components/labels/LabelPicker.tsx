@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Loading from "../Loading/Loading";
 
-import { labPickProps } from "./LlabelPicker.type";
+import { labPickProps } from "./LabelPicker.type";
 import { useQueryLabels } from "../../../hooks/useQueryLabels";
 
 export const LabelPicker: FC<labPickProps> = ({ selectedLabels, onChange }) => {
