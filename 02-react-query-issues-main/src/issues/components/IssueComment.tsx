@@ -3,8 +3,6 @@ import ReactMarkdown from "react-markdown";
 import { IssuesItemProps } from "./issuesItem.type";
 
 export const IssueComment: FC<IssuesItemProps> = ({ issues }) => {
-  console.log(issues);
-
   return (
     <div className="col-12">
       <div className="card border-white mt-2">
