@@ -89,3 +89,4 @@ export const Issues = {
 };
 
 export type Issues = propTypes.InferProps<typeof Issues>;
+export type State = propTypes.InferProps<typeof State>;

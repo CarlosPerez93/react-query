@@ -1,6 +1,9 @@
 import { useState } from "react";
-import { IssueList } from "../components/IssueList";
+import Loading from "../components/Loading/Loading";
+
+import { IssueList } from "../components/issuesList/IssueList";
 import { LabelPicker } from "../components/labels/LabelPicker";
+
 import { useIssues } from "../../hooks";
 
 export const ListView = () => {
@@ -15,7 +18,11 @@ export const ListView = () => {
   return (
     <div className="row mt-5">
       <div className="col-8">
-        <IssueList />
+        {issuesQuery.isLoading ? (
+          <Loading />
+        ) : (
+          <IssueList issues={issuesQuery.data || []} />
+        )}
       </div>
       <div className="col-4">
         <LabelPicker selectedLabels={selectedLabels} onChange={handleOnLabel} />
