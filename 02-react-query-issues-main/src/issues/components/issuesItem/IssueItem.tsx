@@ -1,16 +1,31 @@
 import { FC } from "react";
+import { useNavigate } from "react-router-dom";
+import { useQueryClient } from "@tanstack/react-query";
 import { FiInfo, FiMessageSquare, FiCheckCircle } from "react-icons/fi";
 
 import { IssuesItemProps } from "../issuesItem.type";
 import { State } from "../../../common/getIssues/getIssues.type";
-import { useNavigate } from "react-router-dom";
+import { getIssueInfo } from "../../../common/getIssuesInfo/getIssueInfo";
+import { getIssueComments } from "../../../common/getIssues/getIssuesComments";
 
 export const IssueItem: FC<IssuesItemProps> = ({ issues }) => {
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
+
+  const onMouseEnter = () => {
+    queryClient.prefetchQuery(["issue", issues.number], () =>
+      getIssueInfo(issues.number)
+    );
+
+    queryClient.prefetchQuery(["issue", issues.number, "comments"], () =>
+      getIssueComments(issues.number)
+    );
+  };
   return (
     <div
       className="card mb-2 issue"
       onClick={() => navigate(`/issues/issue/${issues.number}`)}
+      onMouseEnter={onMouseEnter}
     >
       <div className="card-body d-flex align-items-center">
         {issues.state === State.Open ? (

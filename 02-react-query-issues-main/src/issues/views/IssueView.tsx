@@ -7,7 +7,6 @@ export const IssueView = () => {
   const params = useParams();
   const { id = "0" } = params;
   const { issueQuery, commentsQuery } = useIssue(+id);
-  console.log(commentsQuery);
 
   if (issueQuery.isLoading) return <Loading />;
 
@@ -20,15 +19,11 @@ export const IssueView = () => {
         <Link to="./issues/list">Go Back</Link>
       </div>
 
-      {/* Primer comentario */}
       <IssueComment issues={issueQuery.data} />
 
       {commentsQuery.data?.map((issue) => (
         <IssueComment key={issue.id} issues={issue} />
       ))}
-      {/* Comentario de otros */}
-      {/*  <IssueComment body={comment2} />
-      <IssueComment body={comment3} /> */}
     </div>
   );
 };
