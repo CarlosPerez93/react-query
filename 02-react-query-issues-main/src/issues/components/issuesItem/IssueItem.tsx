@@ -12,7 +12,8 @@ export const IssueItem: FC<IssuesItemProps> = ({ issues }) => {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
 
-  const onMouseEnter = () => {
+  /* load data in cache with prefetchQuery or setQueryData */
+  const prefetchData = () => {
     queryClient.prefetchQuery(["issue", issues.number], () =>
       getIssueInfo(issues.number)
     );
@@ -21,11 +22,16 @@ export const IssueItem: FC<IssuesItemProps> = ({ issues }) => {
       getIssueComments(issues.number)
     );
   };
+
+  const preSetData = () => {
+    queryClient.setQueryData(["issue", issues.number], issues);
+  };
   return (
     <div
       className="card mb-2 issue"
       onClick={() => navigate(`/issues/issue/${issues.number}`)}
-      onMouseEnter={onMouseEnter}
+      //onMouseEnter={prefetchData}
+      onMouseEnter={preSetData}
     >
       <div className="card-body d-flex align-items-center">
         {issues.state === State.Open ? (
