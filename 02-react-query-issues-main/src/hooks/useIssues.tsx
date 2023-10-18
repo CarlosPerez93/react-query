@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getIssues } from "../common/getIssues/getIssues";
-import { State } from "../common/getIssues/getIssues.type";
+import { State } from "../common/Interface.type";
 
 interface Props {
   state?: State;

@@ -3,7 +3,7 @@ import { FC } from "react";
 import { IssueItem } from "../issuesItem/IssueItem";
 
 import { IssuesList } from "./issuesList.type";
-import { Issues, State } from "../../../common/getIssues/getIssues.type";
+import { Issues, State } from "../../../common/Interface.type";
 
 interface Props {
   state?: State;

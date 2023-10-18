@@ -2,7 +2,7 @@ import { gitHubApi } from "../api";
 
 import { sleep } from "../../helpers/sleep";
 
-import { Issues } from "./getIssues.type";
+import { Issues } from "../Interface.type";
 
 export const getIssueComments = async (
   issueNumber: number

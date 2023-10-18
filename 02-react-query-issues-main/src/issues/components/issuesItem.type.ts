@@ -1,5 +1,5 @@
 import propTypes from "prop-types";
-import { Issues } from "../../common/getIssues/getIssues.type";
+import { Issues } from "../../common/Interface.type";
 
 export const IssuesItemProps = {
   issues: Issues,

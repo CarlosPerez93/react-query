@@ -2,11 +2,11 @@ import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import { useQueryClient } from "@tanstack/react-query";
 import { FiInfo, FiMessageSquare, FiCheckCircle } from "react-icons/fi";
-
 import { IssuesItemProps } from "../issuesItem.type";
-import { State } from "../../../common/getIssues/getIssues.type";
+import { State } from "../../../common/Interface.type";
 import { getIssueInfo } from "../../../common/getIssuesInfo/getIssueInfo";
 import { getIssueComments } from "../../../common/getIssues/getIssuesComments";
+import { timeSince } from "../../../helpers";
 
 export const IssueItem: FC<IssuesItemProps> = ({ issues }) => {
   const navigate = useNavigate();
@@ -45,9 +45,19 @@ export const IssueItem: FC<IssuesItemProps> = ({ issues }) => {
         <div className="d-flex flex-column flex-fill px-2">
           <span>{issues.title}</span>
           <span className="issue-subinfo">
-            #{issues?.number} opened 2 days ago by
-            <span className="fw-bold">{issues?.user?.login}</span>
+            #{issues.number} opened {timeSince(issues.created_at)} ago by
+            <span className="fw-bold">{issues.user.login}</span>
           </span>
+          <div>
+            {issues.labels.map((label) => (
+              <span
+                className="badge rounded-pill m-1"
+                style={{ backgroundColor: `#${label.color}`, color: "black" }}
+              >
+                {label.name}
+              </span>
+            ))}
+          </div>
         </div>
 
         <div className="d-flex align-items-center">

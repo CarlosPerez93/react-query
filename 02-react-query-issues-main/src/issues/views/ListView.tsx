@@ -5,7 +5,7 @@ import { IssueList } from "../components/issuesList/IssueList";
 import { LabelPicker } from "../components/labels/LabelPicker";
 
 import { useIssues } from "../../hooks";
-import { State } from "../../common/getIssues/getIssues.type";
+import { State } from "../../common/Interface.type";
 
 export const ListView = () => {
   const [selectedLabels, setSelectedLabels] = useState<string[]>([]);

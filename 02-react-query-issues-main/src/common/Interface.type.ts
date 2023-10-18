@@ -1,5 +1,5 @@
 import propTypes from "prop-types";
-import { Label } from "../getLabels/getLabels.type";
+import { Label } from "./getLabels/getLabels.type";
 
 export const User = {
   login: propTypes.string.isRequired,

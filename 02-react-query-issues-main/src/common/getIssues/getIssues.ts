@@ -2,7 +2,7 @@ import { gitHubApi } from "../api";
 
 import { sleep } from "../../helpers/sleep";
 
-import { Issues, State } from "./getIssues.type";
+import { Issues, State } from "../Interface.type";
 
 export const getIssues = async (
   labels: string[] = [],
