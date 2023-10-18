@@ -22,17 +22,17 @@ export const User = {
   site_admin: propTypes.bool.isRequired,
 };
 
-export const State = {
-  Open: "open",
-  Closed: "closed",
-};
+export enum State {
+  Open = "open",
+  Closed = "closed",
+}
 
-export const AuthorAssociation = {
-  Collaborator: "COLLABORATOR",
-  Contributor: "CONTRIBUTOR",
-  Member: "MEMBER",
-  None: "NONE",
-};
+export enum AuthorAssociation {
+  Collaborator = "COLLABORATOR",
+  Contributor = "CONTRIBUTOR",
+  Member = "MEMBER",
+  None = "NONE",
+}
 
 export const Reactions = {
   url: propTypes.string.isRequired,
@@ -88,5 +88,7 @@ export const Issues = {
   pull_request: PullRequest,
 };
 
+export enum Type {
+  User = "User",
+}
 export type Issues = propTypes.InferProps<typeof Issues>;
-export type State = propTypes.InferProps<typeof State>;

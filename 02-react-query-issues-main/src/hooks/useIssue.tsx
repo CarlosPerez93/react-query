@@ -9,7 +9,7 @@ export const useIssue = (issueNumber: number) => {
 
   const commentsQuery = useQuery(
     ["issue", issueNumber, "comments"],
-    () => getIssueComments(issueNumber),
+    () => getIssueComments(issueQuery.data!.number),
     { enabled: issueQuery.data != undefined }
   );
   return { issueQuery, commentsQuery };
