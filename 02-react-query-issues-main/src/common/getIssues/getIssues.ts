@@ -4,11 +4,18 @@ import { sleep } from "../../helpers/sleep";
 
 import { Issues, State } from "../Interface.type";
 
-export const getIssues = async (
-  labels: string[] = [],
-  state?: State
-): Promise<Issues[]> => {
-  await sleep(2);
+interface Props {
+  state?: State;
+  labels: string[];
+  page?: number;
+}
+
+export const getIssues = async ({
+  labels,
+  state,
+  page = 1,
+}: Props): Promise<Issues[]> => {
+  await sleep(0.5);
 
   const params = new URLSearchParams();
 
@@ -19,7 +26,7 @@ export const getIssues = async (
     params.append("labels", labelString);
   }
 
-  params.append("page", "1");
+  params.append("page", page.toString());
   params.append("per_page", "5");
 
   const { data } = await gitHubApi.get<Issues[]>("/issues", { params });
