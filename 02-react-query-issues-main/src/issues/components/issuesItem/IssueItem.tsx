@@ -49,8 +49,9 @@ export const IssueItem: FC<IssuesItemProps> = ({ issues }) => {
             <span className="fw-bold">{issues.user.login}</span>
           </span>
           <div>
-            {issues.labels.map((label) => (
+            {issues.labels.map((label: any) => (
               <span
+                key={label.id}
                 className="badge rounded-pill m-1"
                 style={{ backgroundColor: `#${label.color}`, color: "black" }}
               >
