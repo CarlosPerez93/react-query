@@ -2,6 +2,7 @@ export { productsApi } from "../api/productsApi";
 
 export { useProduct } from "../hooks/useProduct";
 export { useProducts } from "../hooks/useProducts";
+export { usePrefetchProduct } from "../hooks/usePrefetchProduct";
 
 export { MensPage } from "./pages/mensPage";
 export { Error404 } from "./pages/Error404/";
