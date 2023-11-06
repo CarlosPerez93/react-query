@@ -1,8 +1,2 @@
-import propTypes from "prop-types";
-
-export const CompleteListPageProps = {};
+export type Products = {};
 export const CompleteListPageDefaultProps = {};
-
-export type CompleteListPageProps = propTypes.InferProps<
-  typeof CompleteListPageProps
->;

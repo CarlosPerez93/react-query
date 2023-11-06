@@ -1,6 +1,5 @@
-import propTypes from "prop-types";
-export const ProductCardProps = {};
+import { Product } from "../..";
 
-export const ProductCardDefaultProps = {};
-
-export type ProductCardProps = propTypes.InferProps<typeof ProductCardProps>;
+export type Products = {
+  product: Product;
+};

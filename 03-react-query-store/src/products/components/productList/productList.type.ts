@@ -1,6 +1,6 @@
-import propTypes from "prop-types";
+import { Product } from "../..";
 
-export const ProductListProps = {};
-export const ProductListDefualtProps = {};
-
-export type ProductListProps = propTypes.InferProps<typeof ProductListProps>;
+export type Products = {
+  products: Product[] | [];
+};
+export const ProductListDefaultProps = {};

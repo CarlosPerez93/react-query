@@ -1,30 +1,14 @@
-import { FC } from "react";
 import { ProductCard } from "../productCard/ProductCard";
-import { ProductListProps, ProductListDefualtProps } from "./productList.type";
+import { type Products } from "./productList.type";
 
-export const ProductList: FC<ProductListProps> = () => {
+export const ProductList = ({ products }: Products) => {
   return (
     <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2 justify-center max-w-max">
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
+      {products?.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
     </div>
   );
 };
-
-ProductList.propTypes = ProductListProps;
-ProductList.defaultProps = ProductListDefualtProps;
 
 export default ProductCard;
