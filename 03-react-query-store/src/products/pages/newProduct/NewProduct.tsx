@@ -1,8 +1,7 @@
 import { Button, Image, Input, Textarea } from "@nextui-org/react";
 import { FC } from "react";
-import { NewProductDefaultProps, NewProductProps } from "./newPrduct.type";
 
-export const NewProduct: FC<NewProductProps> = () => {
+export const NewProduct = () => {
   return (
     <div className="w-full flex-col">
       <h1 className="text-2xl font-bold">Nuevo producto</h1>
@@ -41,8 +40,5 @@ export const NewProduct: FC<NewProductProps> = () => {
     </div>
   );
 };
-
-NewProduct.propTypes = NewProductProps;
-NewProduct.defaultProps = NewProductDefaultProps;
 
 export default NewProduct;

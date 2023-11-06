@@ -5,14 +5,15 @@ import {
   NewProduct,
   StoreLayout,
   WomensPage,
+  ProductById,
+  Error404,
 } from "../products";
-import { ErrorPage } from "../ErrorPAge";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <StoreLayout />,
-    errorElement: <ErrorPage />,
+    errorElement: <Error404 />,
     children: [
       {
         path: "",
@@ -21,6 +22,10 @@ export const router = createBrowserRouter([
       {
         path: "men",
         element: <MensPage />,
+      },
+      {
+        path: "product/:id",
+        element: <ProductById />,
       },
       {
         path: "women",

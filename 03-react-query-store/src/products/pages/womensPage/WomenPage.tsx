@@ -1,13 +1,8 @@
-import { FC } from "react";
 import { ProductList } from "../../components/productList/ProductList";
-import {
-  WomenPageProps,
-  WomensPageDefaultProps,
-  WomensPageProps,
-} from "./womensPage.type";
+
 import { useProducts } from "../..";
 
-export const WomensPage: FC<WomenPageProps> = () => {
+export const WomensPage = () => {
   const { isLoading, products } = useProducts({
     filterKey: "women's clothing",
   });
@@ -20,8 +15,5 @@ export const WomensPage: FC<WomenPageProps> = () => {
     </div>
   );
 };
-
-WomensPage.propTypes = WomensPageProps;
-WomensPage.defaultProps = WomensPageDefaultProps;
 
 export default WomensPage;

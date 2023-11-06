@@ -1,15 +1,17 @@
 export { productsApi } from "../api/productsApi";
-export { ProductCard } from "./components/productCard";
 
+export { useProduct } from "../hooks/useProduct";
 export { useProducts } from "../hooks/useProducts";
 
-export { StoreLayout } from "./layout/StoreLayout";
-
-export { CompleteListPage } from "./pages/completeListPage";
 export { MensPage } from "./pages/mensPage";
+export { Error404 } from "./pages/Error404/";
 export { NewProduct } from "./pages/newProduct";
+export { ProductById } from "./pages/productById";
+export { StoreLayout } from "./layout/StoreLayout";
+export { ProductCard } from "./components/productCard";
 export { WomensPage } from "./pages/womensPage/WomenPage";
-
-export type { Product } from "./../interfaces/products";
+export { CompleteListPage } from "./pages/completeListPage";
 
 export * as productActions from "../services/actions";
+
+export type { Product } from "./../interfaces/products";

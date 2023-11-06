@@ -1,9 +1,7 @@
-import { FC } from "react";
 import { ProductList } from "../../components/productList/ProductList";
-import { MensPageDefaultProps, MensPageProps } from "./mensPage.type";
 import { useProducts } from "../../../hooks/useProducts";
 
-export const MensPage: FC<MensPageProps> = () => {
+export const MensPage = () => {
   const { isLoading, products } = useProducts({ filterKey: "men's clothing" });
   return (
     <div className="flex-col">
@@ -13,8 +11,5 @@ export const MensPage: FC<MensPageProps> = () => {
     </div>
   );
 };
-
-MensPage.propTypes = MensPageProps;
-MensPage.defaultProps = MensPageDefaultProps;
 
 export default MensPage;

@@ -28,3 +28,5 @@ export const useProducts = ({ filterKey }: Options) => {
     products,
   };
 };
+
+export default useProducts;
