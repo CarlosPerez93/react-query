@@ -1,6 +1,7 @@
 import { Button, Image, Input, Textarea } from "@nextui-org/react";
 import { NewProductProps } from "./newProduct.type";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
+import { useProductMutation } from "../..";
 
 export const NewProduct = () => {
   const { control, handleSubmit, watch } = useForm<NewProductProps>({
@@ -15,8 +16,11 @@ export const NewProduct = () => {
 
   const newImage = watch("image");
 
+  const mutation = useProductMutation();
+
   const onSubmit: SubmitHandler<NewProductProps> = (data) => {
     console.log(data);
+    mutation.mutate(data);
   };
 
   return (
@@ -84,7 +88,7 @@ export const NewProduct = () => {
             />
             <Controller
               control={control}
-              name="description"
+              name="category"
               rules={{ required: true }}
               render={({ field }) => (
                 <select
@@ -92,6 +96,7 @@ export const NewProduct = () => {
                   onChange={field.onChange}
                   className="rounded-md p-3 mt-2 bg-gray-800 w-full"
                 >
+                  <option></option>
                   <option value="men's clothing">Men's clothing</option>
                   <option value="women's clothing">Women's clothing</option>
                   <option value="jewelery">Jewelery</option>
@@ -101,8 +106,13 @@ export const NewProduct = () => {
             />
 
             <br />
-            <Button type="submit" className="mt-2" color="primary">
-              Crear
+            <Button
+              type="submit"
+              className="mt-2"
+              color="primary"
+              isDisabled={mutation.isLoading}
+            >
+              {mutation.isLoading ? "loading..." : "Crear producto"}
             </Button>
           </div>
 
