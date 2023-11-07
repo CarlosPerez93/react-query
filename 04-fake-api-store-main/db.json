@@ -319,6 +319,14 @@
       "category": "men's clothing",
       "image": "https://www.discoazul.com/uploads/media/images/teclado-gaming-krom-rgb-kyra-11.jpg",
       "id": 30
+    },
+    {
+      "title": "Tecaldo para mujer",
+      "description": "asdasd",
+      "price": 1222,
+      "category": "women's clothing",
+      "image": "https://hiraoka.com.pe/media/mageplaza/blog/post/c/o/como_elegir_un_teclado.jpg",
+      "id": 31
     }
   ]
 }
